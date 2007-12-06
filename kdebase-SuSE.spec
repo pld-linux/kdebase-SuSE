@@ -1,7 +1,7 @@
 Summary:	SUSE KDE Extension
 Name:		kdebase-SuSE
 Version:	10.3
-Release:	0.152.2
+Release:	0.152.3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	%{name}-%{version}.tar.bz2
@@ -81,12 +81,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ksplashx_scale
 %attr(755,root,root) %{_bindir}/suseplugger
 %attr(755,root,root) %{_bindir}/update_fstab.sh
+
+# Qt KDE integration
 %{_libdir}/kde3/kded_kdeintegration.la
 %attr(755,root,root) %{_libdir}/kde3/kded_kdeintegration.so
-%attr(755,root,root) %{_libdir}/kde3/libkrpmview.so
-%{_libdir}/kde3/libkrpmview.la
+%dir %{_libdir}/kde3/plugins/integration
 %{_libdir}/kde3/plugins/integration/libqtkde.la
 %attr(755,root,root) %{_libdir}/kde3/plugins/integration/libqtkde.so
+%{_datadir}/services/kded/kdeintegration.desktop
+
+%attr(755,root,root) %{_libdir}/kde3/libkrpmview.so
+%{_libdir}/kde3/libkrpmview.la
 %{_libdir}/kde3/suseplugger.la
 %attr(755,root,root) %{_libdir}/kde3/suseplugger.so
 %{_libdir}/libkdeinit_suseplugger.la
@@ -116,7 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/crystalsvg/scalable/apps/SuSEmenu.svgz
 %{_iconsdir}/hicolor/*/apps/kryptomedia.png
 %{_iconsdir}/locolor/*/apps/krpmview.png
-%{_datadir}/services/kded/kdeintegration.desktop
 %{_datadir}/services/krpmview.desktop
 
 %if 0
@@ -160,9 +164,6 @@ rm -rf $RPM_BUILD_ROOT
 /opt/kde3/%_lib/libkdeinit_suse*
 %{_libdir}/kde3/suse*
 %{_libdir}/kde3/libkrpmview.*
-%{_libdir}/kde3/plugins/integration
-%{_libdir}/kde3/kded_kdeintegration.*
-%{_datadir}/services/kded/kdeintegration.desktop
 %{_datadir}/services/krpmview.desktop
 %config(noreplace) /etc/X11/qt_gtk_fnt2fntrc
 %{_datadir}/apps/konqueror/servicemenus/*.desktop
