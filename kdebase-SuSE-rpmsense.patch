@@ -1,0 +1,13 @@
+--- kdebase-SuSE/krpmview/krpmview.cpp	2007-06-27 19:14:48.000000000 +0300
++++ kdebase-SuSE-rpmsense/krpmview/krpmview.cpp	2007-12-05 17:12:42.000006652 +0200
+@@ -123,6 +123,10 @@
+   }
+ }
+ 
++#ifndef RPMSENSE_STRONG
++#define	RPMSENSE_STRONG (1 << 27)
++#endif
++
+ QString KRPMViewPart::createDependencyList(const Header &h, const QString &caption, int TAGNAME, int TAGVERSION, int TAGFLAGS, bool strongState)
+ {
+   QString result, temp;
