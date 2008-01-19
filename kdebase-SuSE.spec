@@ -1,4 +1,5 @@
-Summary:	SUSE KDE Extension
+Summary:	SuSE KDE Extensions
+Summary(pl.UTF-8):	Rozszerzenia SuSE dla KDE
 Name:		kdebase-SuSE
 Version:	10.3
 Release:	0.152.3
@@ -18,15 +19,24 @@ BuildRequires:	rpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This package contains the standard SUSE desktop and menu extensions
+This package contains the standard SuSE desktop and menu extensions
 for the Kpanel.
+
+%description -l pl.UTF-8
+Ten pakiet zawiera standardowe rozszerzenia SuSE do pulpitu i menu
+dla Kpanelu.
 
 %package -n kde-kio-sysinfo
 Summary:	System Information KIO-Slave
+Summary(pl.UTF-8):	KIO-Slave z informacjami systemowymi
 Group:		X11/Applications
 
 %description -n kde-kio-sysinfo
 This package contains a KDE KIO-Slave showing system information.
+
+%description -n kde-kio-sysinfo -l pl.UTF-8
+Ten pakiet zawiera moduł KDE KIO-Slave pokazujący informacje
+systemowe.
 
 %prep
 %setup -q -n %{name}
@@ -90,8 +100,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/kde3/plugins/integration/libqtkde.so
 %{_datadir}/services/kded/kdeintegration.desktop
 
-%attr(755,root,root) %{_libdir}/kde3/libkrpmview.so
 %{_libdir}/kde3/libkrpmview.la
+%attr(755,root,root) %{_libdir}/kde3/libkrpmview.so
 %{_libdir}/kde3/suseplugger.la
 %attr(755,root,root) %{_libdir}/kde3/suseplugger.so
 %{_libdir}/libkdeinit_suseplugger.la
